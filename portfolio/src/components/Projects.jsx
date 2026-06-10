@@ -78,40 +78,67 @@ const techColors = {
 function ProjectSlider({ images }) {
   const [current, setCurrent] = useState(0);
   const [playing, setPlaying] = useState(true);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+
+  const extendedImages = [...images, images[0]]; // 👈 clone 1ère image
 
   useEffect(() => {
     if (!playing) return;
 
     const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
+      setCurrent((prev) => prev + 1);
     }, 2500);
 
     return () => clearInterval(timer);
-  }, [playing, images.length]);
+  }, [playing]);
+
+  // 🔁 reset silencieux à la fin
+  useEffect(() => {
+    if (current === images.length) {
+      setTimeout(() => {
+        setIsTransitioning(false);
+        setCurrent(0);
+      }, 700); // même durée que transition
+
+      setTimeout(() => {
+        setIsTransitioning(true);
+      }, 750);
+    }
+  }, [current, images.length]);
 
   return (
     <div className="relative h-56 overflow-hidden">
-      <img
-        src={images[current]}
-        alt=""
-        className="w-full h-full object-cover transition-all duration-700"
-      />
+      <div
+        className={`flex h-full ${isTransitioning ? "transition-transform duration-700 ease-in-out" : ""}`}
+        style={{
+          transform: `translateX(-${current * 100}%)`,
+        }}
+      >
+        {extendedImages.map((img, i) => (
+          <img
+            key={i}
+            src={img}
+            className="w-full h-56 flex-shrink-0 object-cover"
+            alt=""
+          />
+        ))}
+      </div>
 
+      {/* Play/Pause */}
       <button
         onClick={() => setPlaying(!playing)}
-        className="absolute top-3 right-3 bg-black/60 backdrop-blur-sm text-white p-2 rounded-full"
+        className="absolute top-3 right-3 bg-black/60 text-white p-2 rounded-full"
       >
         {playing ? <Pause size={14} /> : <Play size={14} />}
       </button>
 
+      {/* Dots */}
       <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
         {images.map((_, i) => (
           <div
             key={i}
             className={`w-2 h-2 rounded-full ${
-              current === i
-                ? "bg-white"
-                : "bg-white/40"
+              current % images.length === i ? "bg-white" : "bg-white/40"
             }`}
           />
         ))}
@@ -119,7 +146,6 @@ function ProjectSlider({ images }) {
     </div>
   );
 }
-
 export default function Projects() {
   return (
     <section id="projects" className="py-20 px-6 bg-white dark:bg-gray-950 transition-colors duration-300">

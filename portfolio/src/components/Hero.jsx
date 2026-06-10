@@ -100,7 +100,7 @@ export default function Hero() {
             <img
   src="images/b14793be-28ee-4100-939f-52a98fad94f4.jpg"
   alt="Fredo RANDRIANARISON"
-  className="w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full object-cover object-top border-4 border-white dark:border-zinc-800 shadow-lg"
+  className="w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 lg:w-67 lg:h-72 rounded-full object-cover object-top border-4 border-white dark:border-zinc-800 shadow-lg"
 />
             </div>
 

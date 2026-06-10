@@ -4,14 +4,14 @@ const services = [
   {
     icon: <Code size={45} />,
     title: "Développement Frontend",
-    desc: "Création d'interfaces modernes, réactives et performantes avec React et Tailwind CSS.",
+    desc: "Création d'interfaces modernes, réactives et performantes.",
     color: "from-blue-500",
     items: ["Interfaces dynamiques et interactives", "Design responsive (mobile & desktop)", "Expérience utilisateur optimisée"],
   },
   {
     icon: <Map size={45} />,
     title: "Développement Backend",
-    desc: "Développement d'API, gestion de bases de données et logique serveur avec Node.js.",
+    desc: "Développement d'API, gestion de bases de données et logique serveur robuste",
     color: "from-purple-500",
     items: ["Création d'API performantes", "Gestion de l'authentification", "Sécurisation des données"],
   },

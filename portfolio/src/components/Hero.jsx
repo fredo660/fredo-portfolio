@@ -14,7 +14,7 @@ export default function Hero() {
       <div className="max-w-6xl w-full grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
 
         {/* LEFT */}
-        <div className="flex flex-col items-start text-left order-1 lg:order-1">
+        <div className="flex flex-col items-center lg:items-start text-center lg:text-left order-1 lg:order-1">
 
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/40 text-blue-500 dark:text-blue-400 text-xs sm:text-sm bg-blue-500/10 shadow-[0_0_20px_rgba(59,130,246,0.3)] animate-pulse mb-5">
@@ -96,12 +96,12 @@ export default function Hero() {
           <div className="relative">
             <div className="absolute inset-0 rounded-[32px] bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 blur-2xl opacity-20 dark:opacity-30 animate-pulse" />
 
-            <div className="relative bg-zinc-100 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800 rounded-[32px] p-2 backdrop-blur-xl">
-              <img
-                src="images/b14793be-28ee-4100-939f-52a98fad94f4.jpg"
-                alt="Fredo RANDRIANARISON"
-                className="w-[160px] h-[200px] sm:w-[210px] sm:h-[260px] md:w-[260px] md:h-[320px] lg:w-[300px] lg:h-[370px] rounded-[26px] object-cover object-top"
-              />
+            <div className="relative p-2">
+            <img
+  src="images/b14793be-28ee-4100-939f-52a98fad94f4.jpg"
+  alt="Fredo RANDRIANARISON"
+  className="w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full object-cover object-top border-4 border-white dark:border-zinc-800 shadow-lg"
+/>
             </div>
 
             <div className="absolute -bottom-4 -left-4 sm:-bottom-5 sm:-left-5 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl px-3 py-2 sm:px-4 sm:py-3 shadow-lg animate-bounce">

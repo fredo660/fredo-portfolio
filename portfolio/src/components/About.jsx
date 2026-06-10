@@ -48,7 +48,7 @@ export default function About() {
               Développement Full Stack
             </h3>
             <p className="text-gray-500 dark:text-gray-400 text-sm">
-              Création d'applications web complètes avec React, Node.js et bases de données.
+              Création d'applications web complètes frontend, backend et bases de données.
             </p>
           </div>
         </div>

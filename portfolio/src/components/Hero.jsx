@@ -14,7 +14,7 @@ export default function Hero() {
       <div className="max-w-6xl w-full grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
 
         {/* LEFT */}
-        <div className="flex flex-col items-start text-left order-2 lg:order-1">
+        <div className="flex flex-col items-start text-left order-1 lg:order-1">
 
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/40 text-blue-500 dark:text-blue-400 text-xs sm:text-sm bg-blue-500/10 shadow-[0_0_20px_rgba(59,130,246,0.3)] animate-pulse mb-5">
@@ -48,9 +48,10 @@ export default function Hero() {
 
           {/* Description */}
           <p className="mt-3 text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed max-w-lg">
-            Développeur Full Stack spécialisé en cartographie interactive, SIG et
-            visualisation de données. Master 2 Informatique — Université de Fianarantsoa.
-          </p>
+  Développeur Full Stack spécialisé en développement web, analyse et
+  visualisation de données ainsi qu’en cartographie interactive.
+  Master 2 en Informatique - l’Université de Fianarantsoa.
+</p>
 
           {/* Boutons */}
           <div className="mt-7 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
@@ -91,7 +92,7 @@ export default function Hero() {
         </div>
 
         {/* RIGHT — IMAGE */}
-        <div className="flex justify-center lg:justify-end order-1 lg:order-2">
+        <div className="flex justify-center lg:justify-end order-2 lg:order-2">
           <div className="relative">
             <div className="absolute inset-0 rounded-[32px] bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 blur-2xl opacity-20 dark:opacity-30 animate-pulse" />
 
@@ -104,9 +105,7 @@ export default function Hero() {
             </div>
 
             <div className="absolute -bottom-4 -left-4 sm:-bottom-5 sm:-left-5 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl px-3 py-2 sm:px-4 sm:py-3 shadow-lg animate-bounce">
-              <p className="text-gray-900 dark:text-white text-xs sm:text-sm font-semibold">
-                React · SIG · Node.js · Python
-              </p>
+              
               <span className="text-gray-400 dark:text-gray-500 text-xs">Full Stack Developer</span>
             </div>
           </div>

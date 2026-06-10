@@ -25,18 +25,15 @@ export default function About() {
       {/* CARTE PRINCIPALE */}
       <div className="relative max-w-5xl w-full p-[2px] rounded-2xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
         <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl text-center shadow-xl backdrop-blur-md">
-          <p className="text-gray-800 dark:text-white text-xl leading-relaxed">
-            Je suis{" "}
-            <span className="font-extrabold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
-              RANDRIANARISON Nomenjanahary Fredo
-            </span>
-            , développeur Full Stack spécialisé dans la création d'applications web et de solutions géospatiales.
-          </p>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto my-6 rounded-full" />
-          <p className="text-gray-500 dark:text-gray-300 text-lg italic">
-            Spécialisé en Systèmes d'Information Géographique (SIG),
-            cartographie interactive et visualisation de données.
-          </p>
+        <p className="text-gray-800 dark:text-white text-xl leading-relaxed">
+  Je suis{" "}
+  <span className="font-extrabold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+    RANDRIANARISON Nomenjanahary Fredo
+  </span>
+  , développeur Full Stack spécialisé dans la conception et le développement
+  d’applications web, l’analyse et la visualisation de données ainsi que
+  l’intégration de solutions géospatiales.
+</p>
         </div>
       </div>
 

@@ -63,7 +63,7 @@ export default function Hero() {
               Voir mes projets
             </a>
             <a
-              href="/cv.pdf"
+              href="/RANDRIANARISON Nomenjanahary Fredo.pdf"
               download
               className="flex items-center justify-center gap-2 px-6 py-3 rounded-2xl border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-900/70 text-zinc-700 dark:text-gray-300 text-sm hover:border-blue-500 hover:text-blue-500 hover:scale-105 transition-all duration-300"
             >

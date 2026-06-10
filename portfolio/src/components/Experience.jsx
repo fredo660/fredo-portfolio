@@ -54,9 +54,7 @@ export default function Experience() {
             <Sparkles size={16} className="animate-pulse" />
             Expériences & Projets
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white text-center">
-            Parcours professionnel
-          </h2>
+        
           <p className="text-gray-500 dark:text-gray-400 text-center max-w-2xl">
             Découvrez mes expériences professionnelles, projets web SIG
             et réalisations en développement et visualisation de données.

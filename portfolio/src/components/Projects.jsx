@@ -1,11 +1,18 @@
-import { ExternalLink } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Play, Pause, ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 
 const projects = [
   {
-    emoji: "🗺️",
+   
     bgClass: "from-blue-500/10 to-cyan-500/5",
     title: "Carte résultats scolaires Madagascar",
+    images: [
+      "/projects/map1.png",
+      "/projects/map2.png",
+      "/projects/map3.png",
+      "/projects/map4.png",
+    ],
     desc: "Plateforme web cartographique SIG permettant de consulter et visualiser les résultats scolaires des circonscriptions à Madagascar. Cartes interactives avec filtres géographiques.",
     tech: ["React", "Leaflet", "GeoServer", "Supabase", "PostgreSQL"],
     techColor: ["blue", "green", "green", "yellow", "yellow"],
@@ -13,9 +20,14 @@ const projects = [
     githubUrl: "https://github.com/fredo660",
   },
   {
-    emoji: "📊",
+    
     bgClass: "from-purple-500/10 to-pink-500/5",
     title: "Dashboard éducatif — Taux de réussite",
+    images: [
+      "/projects/m.png",
+      "/projects/m.png",
+      "/projects/m.png",
+    ],
     desc: "Analyse et visualisation des taux de réussite et d'abandon scolaire. Tableaux de bord interactifs pour l'aide à la décision dans le secteur éducatif malgache.",
     tech: ["React", "Node.js", "MySQL", "API REST"],
     techColor: ["blue", "purple", "yellow", "blue"],
@@ -23,9 +35,15 @@ const projects = [
     githubUrl: "https://github.com/fredo660",
   },
   {
-    emoji: "🛡️",
+    
     bgClass: "from-yellow-500/10 to-orange-500/5",
     title: "Détecteur de messages spam",
+    images: [
+      "/projects/spam1.png",
+      "/projects/spam2.png",
+      "/projects/spam3.png",
+      "/projects/spam4.png",
+    ],
     desc: "Application de détection automatique de messages spam basée sur le traitement du langage naturel (NLP). Modèle entraîné avec classification binaire pour filtrer les messages indésirables.",
     tech: ["Python", "NLP", "Scikit-learn", "Pandas", "Machine Learning"],
     techColor: ["green", "green", "green", "green", "purple"],
@@ -33,9 +51,15 @@ const projects = [
     githubUrl: "https://github.com/fredo660",
   },
   {
-    emoji: "🏠",
+    
     bgClass: "from-green-500/10 to-teal-500/5",
     title: "Classification des ménages vulnérables",
+    images: [
+      "/projects/vulne1.png",
+      "/projects/vulne2.png",
+      "/projects/vulne3.png",
+      "/projects/vulne4.png",
+    ],
     desc: "Modèle de classification des ménages vulnérables à partir de données socio-économiques. Aide à la prise de décision pour les politiques sociales à Madagascar.",
     tech: ["Python", "Machine Learning", "Pandas", "Scikit-learn"],
     techColor: ["green", "purple", "green", "green"],
@@ -51,6 +75,51 @@ const techColors = {
   yellow: "bg-yellow-50 dark:bg-yellow-400/10 text-yellow-600 dark:text-yellow-400 border border-yellow-200 dark:border-yellow-400/20",
 };
 
+function ProjectSlider({ images }) {
+  const [current, setCurrent] = useState(0);
+  const [playing, setPlaying] = useState(true);
+
+  useEffect(() => {
+    if (!playing) return;
+
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 2500);
+
+    return () => clearInterval(timer);
+  }, [playing, images.length]);
+
+  return (
+    <div className="relative h-56 overflow-hidden">
+      <img
+        src={images[current]}
+        alt=""
+        className="w-full h-full object-cover transition-all duration-700"
+      />
+
+      <button
+        onClick={() => setPlaying(!playing)}
+        className="absolute top-3 right-3 bg-black/60 backdrop-blur-sm text-white p-2 rounded-full"
+      >
+        {playing ? <Pause size={14} /> : <Play size={14} />}
+      </button>
+
+      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+        {images.map((_, i) => (
+          <div
+            key={i}
+            className={`w-2 h-2 rounded-full ${
+              current === i
+                ? "bg-white"
+                : "bg-white/40"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Projects() {
   return (
     <section id="projects" className="py-20 px-6 bg-white dark:bg-gray-950 transition-colors duration-300">
@@ -62,9 +131,7 @@ export default function Projects() {
             <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
             Projets
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white text-center">
-            Mes réalisations
-          </h2>
+          
           <p className="text-gray-500 dark:text-gray-400 text-center max-w-xl">
             Applications web, cartographie interactive et intelligence artificielle
           </p>
@@ -78,9 +145,7 @@ export default function Projects() {
               className="group bg-gray-50 dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-2xl overflow-hidden hover:border-blue-300 dark:hover:border-zinc-600 hover:scale-[1.02] shadow-sm dark:shadow-none transition-all duration-300"
             >
               {/* Header */}
-              <div className={`h-28 flex items-center justify-center bg-gradient-to-br ${project.bgClass} text-5xl`}>
-                {project.emoji}
-              </div>
+              <ProjectSlider images={project.images} />
 
               {/* Body */}
               <div className="p-5">

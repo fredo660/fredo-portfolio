@@ -65,9 +65,7 @@ export default function Skills() {
             <Sparkles size={14} className="animate-pulse" />
             Compétences
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white text-center">
-            Technologies maîtrisées
-          </h2>
+          
           <p className="text-gray-500 dark:text-gray-400 text-center max-w-md">
             Stack technique en développement Full Stack, SIG et Data Science
           </p>

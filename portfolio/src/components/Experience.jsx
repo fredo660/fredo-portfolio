@@ -2,6 +2,24 @@ import { Briefcase, GraduationCap, MapPinned, Code, Sparkles } from "lucide-reac
 
 const experiences = [
   {
+    title: "Plateforme SIG de suivi la déforestation",
+    company: "Projet Web SIG • EMIT",
+    date: "juin 2026",
+    icon: <MapPinned size={20} />,
+    description:
+      "Conception d'une plateforme SIG permettant de suivi la déforestation sur cinq régions de la côte Est de Madagascar (2015–2023). Publication de services OGC (WMS/WFS) avec GeoServer, gestion des métadonnées ISO 19115 via GeoNetwork, stockage des données spatiales dans PostgreSQL/PostGIS et visualisation cartographique avec React.",
+    technologies: [
+      "React",
+      "GeoServer",
+      "GeoNetwork",
+      "PostGIS",
+      "PostgreSQL",
+      "Leaflet",
+      "Python",
+      "ISO 19115"
+    ],
+  },
+  {
     title: "Détecteur de messages spam & Classification des ménages vulnérables",
     company: "Projets Data Science / IA",
     date: "Mai 2026",

@@ -3,6 +3,7 @@ import { Play, Pause, ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 
 const projects = [
+
   {
     bgClass: "from-green-500/10 to-emerald-500/5",
     title: "Suivi déforestation — Côte Est Madagascar",
@@ -27,32 +28,36 @@ const projects = [
   },
   {
     bgClass: "from-blue-500/10 to-cyan-500/5",
-    title: "Carte résultats scolaires Madagascar",
+    title: "Géolocalisation des établissements — Madagascar",
+    mobile: true,
     images: [
-      "/projects/map1.png",
-      "/projects/map2.png",
-      "/projects/map3.png",
-      "/projects/map4.png",
+      "/projects/geoloc1.png",
+      "/projects/geoloc2.png",
+      "/projects/geoloc3.png",
+      "/projects/geoloc4.png",
+      "/projects/geoloc5.png",
     ],
-    desc: "Plateforme web cartographique SIG permettant de consulter et visualiser les résultats scolaires des circonscriptions à Madagascar. Cartes interactives avec filtres géographiques.",
-    tech: ["React", "Leaflet", "GeoServer", "Supabase", "PostgreSQL"],
-    techColor: ["blue", "green", "green", "yellow", "yellow"],
-    liveUrl: "https://map-cartographie.onrender.com",
+    desc: "Application mobile de géolocalisation des établissements à Madagascar (React Native / Expo). Carte interactive avec position en temps réel et boussole, itinéraires routiers voiture/à pied, recherche et filtres par catégorie, backend Supabase.",
+    tech: ["React Native", "Expo", "Supabase", "Leaflet", "expo-location", "OSRM"],
+    techColor: ["blue", "purple", "green", "teal", "blue", "yellow"],
+    liveUrl: null,
     githubUrl: "https://github.com/fredo660",
   },
   {
-    bgClass: "from-purple-500/10 to-pink-500/5",
-    title: "Dashboard éducatif — Taux de réussite",
+    bgClass: "from-yellow-500/10 to-orange-500/5",
+    title: "Tableau de bord des soins dentaires",
     images: [
-      "/projects/m.png",
-      "/projects/m.png",
-      "/projects/m.png",
+      "/projects/dentaire1.jpeg",
+      "/projects/dentaire2.jpeg",
+      "/projects/dentaire3.jpeg",
+      "/projects/dentaire4.jpeg",
     ],
-    desc: "Analyse et visualisation des taux de réussite et d'abandon scolaire. Tableaux de bord interactifs pour l'aide à la décision dans le secteur éducatif malgache.",
-    tech: ["React", "Node.js", "MySQL", "API REST"],
-    techColor: ["blue", "purple", "yellow", "blue"],
+    desc: "Analyse et visualisation de données de soins dentaires à travers un tableau de bord interactif Power BI. Mise en place d’indicateurs et de visualisations pour faciliter le suivi et l’aide à la décision.",
+    tech: ["Power BI", "Data Analysis", "Data Visualization"],
+    techColor: ["yellow", "blue", "purple"],
     liveUrl: null,
     githubUrl: "https://github.com/fredo660",
+    badge: "Projet académique",
   },
   {
     bgClass: "from-yellow-500/10 to-orange-500/5",
@@ -84,6 +89,36 @@ const projects = [
     liveUrl: null,
     githubUrl: "https://github.com/fredo660",
   },
+  {
+    bgClass: "from-blue-500/10 to-cyan-500/5",
+    title: "Carte résultats scolaires Madagascar",
+    images: [
+      "/projects/map1.png",
+      "/projects/map2.png",
+      "/projects/map3.png",
+      "/projects/map4.png",
+    ],
+    desc: "Plateforme web cartographique SIG permettant de consulter et visualiser les résultats scolaires des circonscriptions à Madagascar. Cartes interactives avec filtres géographiques.",
+    tech: ["React", "Leaflet", "GeoServer", "Supabase", "PostgreSQL"],
+    techColor: ["blue", "green", "green", "yellow", "yellow"],
+    liveUrl: "https://map-cartographie.onrender.com",
+    githubUrl: "https://github.com/fredo660",
+  },
+  {
+    bgClass: "from-purple-500/10 to-pink-500/5",
+    title: "Dashboard éducatif — Taux de réussite",
+    images: [
+      "/projects/m.png",
+      "/projects/m.png",
+      "/projects/m.png",
+    ],
+    desc: "Analyse et visualisation des taux de réussite et d'abandon scolaire. Tableaux de bord interactifs pour l'aide à la décision dans le secteur éducatif malgache.",
+    tech: ["React", "Node.js", "MySQL", "API REST"],
+    techColor: ["blue", "purple", "yellow", "blue"],
+    liveUrl: null,
+    githubUrl: "https://github.com/fredo660",
+  },
+  
 ];
 
 const techColors = {
@@ -94,7 +129,7 @@ const techColors = {
   teal:   "bg-teal-50   dark:bg-teal-500/10   text-teal-600   dark:text-teal-400   border border-teal-200   dark:border-teal-500/20",
 };
 
-function ProjectSlider({ images }) {
+function ProjectSlider({ images, mobile = false }) {
   const [current, setCurrent] = useState(0);
   const [playing, setPlaying] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(true);
@@ -122,18 +157,28 @@ function ProjectSlider({ images }) {
   }, [current, images.length]);
 
   return (
-    <div className="relative h-56 overflow-hidden">
+    <div
+      className={`relative overflow-hidden ${
+        mobile
+          ? "h-80 sm:h-96 bg-gray-100 dark:bg-zinc-950"
+          : "h-56"
+      }`}
+    >
       <div
         className={`flex h-full ${isTransitioning ? "transition-transform duration-700 ease-in-out" : ""}`}
         style={{ transform: `translateX(-${current * 100}%)` }}
       >
         {extendedImages.map((img, i) => (
-          <img
+          <div
             key={i}
-            src={img}
-            className="w-full h-56 flex-shrink-0 object-cover"
-            alt=""
-          />
+            className="w-full h-full flex-shrink-0 flex items-center justify-center"
+          >
+            <img
+              src={img}
+              className={mobile ? "h-full w-auto max-w-full object-contain" : "w-full h-full object-cover"}
+              alt=""
+            />
+          </div>
         ))}
       </div>
 
@@ -166,7 +211,7 @@ function DeforestationCard({ project }) {
 
         {/* Slider gauche */}
         <div className="relative">
-          <ProjectSlider images={project.images} />
+          <ProjectSlider images={project.images} mobile={project.mobile} />
           {/* Badge projet phare */}
           <div className="absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full shadow-lg">
             <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
@@ -271,8 +316,74 @@ function DeforestationCard({ project }) {
   );
 }
 
+// Carte spéciale pour l'application mobile (image à gauche, texte à droite)
+function MobileAppCard({ project }) {
+  return (
+    <div className="md:col-span-2 group bg-gray-50 dark:bg-zinc-900 border border-blue-200 dark:border-blue-900/50 rounded-2xl overflow-hidden hover:border-blue-400 dark:hover:border-blue-700 hover:scale-[1.01] shadow-sm dark:shadow-none transition-all duration-300">
+      <div className="grid md:grid-cols-2">
+
+        {/* Slider gauche */}
+        <div className="relative">
+          <ProjectSlider images={project.images} mobile={true} />
+          <div className="absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full shadow-lg">
+            <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+            Application mobile
+          </div>
+        </div>
+
+        {/* Contenu droite */}
+        <div className="p-6 flex flex-col justify-between">
+          <div>
+            <h3 className="text-gray-900 dark:text-white font-bold text-xl mb-3 leading-snug">
+              {project.title}
+            </h3>
+
+            <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-4">
+              {project.desc}
+            </p>
+
+            <div className="flex flex-wrap gap-1.5 mb-5">
+              {project.tech.map((t, i) => (
+                <span
+                  key={i}
+                  className={`px-2.5 py-1 rounded-full text-xs ${techColors[project.techColor[i]]}`}
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex gap-3">
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-500/20 text-xs hover:bg-blue-100 dark:hover:bg-blue-500/20 transition"
+              >
+                <ExternalLink size={13} />
+                Voir le projet
+              </a>
+            )}
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-zinc-700 text-xs hover:bg-gray-200 dark:hover:bg-zinc-700 transition"
+            >
+              <FaGithub size={13} />
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Projects() {
-  const [deforestation, ...otherProjects] = projects;
+  const [deforestation, mobileApp, ...otherProjects] = projects;
 
   return (
     <section id="projects" className="py-20 px-6 bg-white dark:bg-gray-950 transition-colors duration-300">
@@ -295,13 +406,16 @@ export default function Projects() {
           {/* Projet déforestation — mis en avant, pleine largeur */}
           <DeforestationCard project={deforestation} />
 
+          {/* Application mobile — image à gauche, texte à droite, pleine largeur */}
+          <MobileAppCard project={mobileApp} />
+
           {/* Autres projets */}
           {otherProjects.map((project, index) => (
             <div
               key={index}
               className="group bg-gray-50 dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-2xl overflow-hidden hover:border-blue-300 dark:hover:border-zinc-600 hover:scale-[1.02] shadow-sm dark:shadow-none transition-all duration-300"
             >
-              <ProjectSlider images={project.images} />
+              <ProjectSlider images={project.images} mobile={project.mobile} />
 
               <div className="p-5">
                 <h3 className="text-gray-900 dark:text-white font-semibold text-lg mb-2">

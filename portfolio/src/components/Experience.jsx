@@ -2,7 +2,54 @@ import { Briefcase, GraduationCap, MapPinned, Code, Sparkles } from "lucide-reac
 
 const experiences = [
   {
-    title: "Plateforme SIG de suivi la déforestation",
+    title: "Application mobile de géolocalisation des établissements",
+    company: "Projet personnel • React Native / Expo",
+    date: "Août 2026 — En cours",
+    icon: <MapPinned size={20} />,
+    description:
+      "Développement d'une application mobile de géolocalisation des établissements à Madagascar. Carte interactive avec position GPS en temps réel et boussole, calcul d'itinéraires routiers (voiture/à pied), recherche et filtres par catégorie, backend Supabase.",
+    technologies: [
+      "React Native",
+      "Expo",
+      "Supabase",
+      "Leaflet",
+      "expo-location",
+      "OSRM",
+    ],
+  },
+  {
+    title: "GeoDecision Madagascar — WebGIS d’aide à la décision",
+    company: "Projet académique • EMIT",
+    date: "Août 2026 — En cours",
+    icon: <MapPinned size={20} />,
+    description:
+      "Conception d’une plateforme WebGIS dédiée à l’analyse territoriale et à l’aide à la décision pour la gestion des infrastructures publiques à Madagascar. Intégration de données géographiques, bases de données spatiales, cartographie interactive et outils d’analyse.",
+    technologies: [
+      "ExtJS",
+      "GeoExt",
+      "python",
+      "OpenLayers",
+      "PostgreSQL",
+      "PostGIS",
+      "GeoServer",
+      "API REST",
+    ],
+  },
+  {
+    title: "Tableau de bord des soins dentaires",
+    company: "Projet Data Visualisation • Power BI",
+    date: "Juillet 2026",
+    icon: <Code size={20} />,
+    description:
+      "Conception d’un tableau de bord interactif pour l’analyse et la visualisation de données de soins dentaires. Mise en place d’indicateurs et de visualisations permettant de faciliter le suivi des données et l’aide à la décision.",
+    technologies: [
+      "Power BI",
+      "Data Analysis",
+      "Data Visualization",
+    ],
+  },
+  {
+    title: "Plateforme SIG de suivi de la déforestation",
     company: "Projet Web SIG • EMIT",
     date: "juin 2026",
     icon: <MapPinned size={20} />,
